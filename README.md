@@ -13,7 +13,7 @@ In order to be considered for the Android position, please complete this task.
 	- Connect to the [Github API](http://developer.github.com/)
 	- Find the [android/platform_build](https://github.com/android/platform_build) repository
 	- Find the most recent commits (choose at least 25 or more of the commits)
-	- Create a RecyclerView that shows the recent commits by author in a custom view. 
+	- Create a RecyclerView that shows the recent commits by author
 4. Commit and Push your code to your new repository
 5. Send us a pull request, we will review your code and get back to you
 
