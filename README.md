@@ -15,7 +15,7 @@ In order to be considered for the Android position, please complete this task.
 	- Find the most recent commits (choose at least 25 or more of the commits)
 	- Create a RecyclerView that shows the recent commits by author
 4. Commit and Push your code to your new repository
-5. Send us a pull request, we will review your code and get back to you
+5. Send us a pull request (or if you prefer to keep it private, send us the files), we will review your code and get back to you
 
 
 ### Optional extras
@@ -23,4 +23,3 @@ Extras are appreciated. Here's a small list of ideas:
 * Show avatar in the custom commit view
 * Implement tapping a commit to show more details in a new view
 * Load more commits when reaching the end of the list
-
