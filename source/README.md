@@ -42,6 +42,10 @@ There is no UI tests(Espresso) due to time limit.
 * Show avatar in the custom commit view
 * Load more commits when reaching the end of the list
 
+# Important
+Replace `auth_token` with your own github access token with `repo` and `user` scopes in `strings.xml` when you run the app.
+
+Otherwise you will end up with `401 Unauthorized`
 
 [1]: https://kotlinlang.org/
 [2]: https://github.com/Kotlin/kotlinx.coroutines

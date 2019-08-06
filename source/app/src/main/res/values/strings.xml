@@ -2,4 +2,5 @@
     <string name="app_name">GithubCommit</string>
     <string name="retry">Retry</string>
     <string name="no_commit">No commit</string>
+    <string name="auth_token">please replace this with your github access token</string>
 </resources>

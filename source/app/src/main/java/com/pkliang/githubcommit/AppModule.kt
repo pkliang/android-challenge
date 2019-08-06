@@ -1,5 +1,6 @@
 package com.pkliang.githubcommit
 
+import android.content.Context
 import com.apollographql.apollo.ApolloClient
 import com.pkliang.githubcommit.data.network.AuthInterceptor
 import com.pkliang.githubcommit.data.repository.CommitRepositoryGraphqlImpl
@@ -14,7 +15,7 @@ const val BASE_URL = "https://api.github.com/graphql"
 val appModule = module {
     single {
         OkHttpClient.Builder()
-            .addInterceptor(AuthInterceptor())
+            .addInterceptor(AuthInterceptor(get<Context>().getString(R.string.auth_token)))
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()
     }
