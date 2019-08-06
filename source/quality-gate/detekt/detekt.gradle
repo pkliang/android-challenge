@@ -1,0 +1,24 @@
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    config = files("$rootDir/quality-gate/detekt/detekt-config.yml")
+    input = files(
+            "src/main/java",
+            "src/test/java",
+            "src/androidTest/java"
+    )
+    reports {
+        xml {
+            enabled = true
+            destination = file("build/reports/detekt/detekt.xml")
+        }
+        html {
+            enabled = true
+            destination = file("build/reports/detekt/detekt.html")
+        }
+    }
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
+}
