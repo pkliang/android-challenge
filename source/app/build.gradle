@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.apollographql.android'
 apply from: '../quality-gate/detekt/detekt.gradle'
 
@@ -41,7 +42,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
 
@@ -49,10 +50,16 @@ dependencies {
     implementation "com.apollographql.apollo:apollo-coroutines-support:1.0.2"
     implementation "com.apollographql.apollo:apollo-android-support:1.0.2"
 
+    implementation "org.koin:koin-androidx-viewmodel:$koin"
+    implementation "com.airbnb.android:mvrx:$mvrx"
+    implementation "com.airbnb.android:epoxy:$epoxy"
+    kapt "com.airbnb.android:epoxy-processor:$epoxy"
+
     testImplementation 'junit:junit:4.12'
     testImplementation "io.mockk:mockk:$mockk"
     testImplementation "org.hamcrest:hamcrest-library:1.3"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines"
+    testImplementation "com.airbnb.android:mvrx-testing:$mvrx"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
