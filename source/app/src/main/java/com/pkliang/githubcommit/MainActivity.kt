@@ -1,19 +1,18 @@
 package com.pkliang.githubcommit
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pkliang.githubcommit.ui.main.MainFragment
+import com.airbnb.mvrx.BaseMvRxActivity
+import com.pkliang.githubcommit.ui.commit.CommitFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseMvRxActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, CommitFragment())
                 .commitNow()
         }
     }
-
 }

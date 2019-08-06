@@ -54,6 +54,10 @@ dependencies {
     implementation "com.airbnb.android:mvrx:$mvrx"
     implementation "com.airbnb.android:epoxy:$epoxy"
     kapt "com.airbnb.android:epoxy-processor:$epoxy"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
     testImplementation 'junit:junit:4.12'
     testImplementation "io.mockk:mockk:$mockk"
