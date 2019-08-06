@@ -8,7 +8,7 @@ class AuthInterceptor : Interceptor {
         return chain.proceed(
             chain.request().newBuilder().header(
                 "Authorization",
-                "Bearer 12b8eaab100f425c450e568db42650eabad9a0c9"
+                "Bearer 88cf261dc748743e435c19e8c6403ffdd28896b1"
             ).build()
         )
     }
