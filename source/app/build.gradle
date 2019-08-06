@@ -1,7 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.apollographql.android'
 apply from: '../quality-gate/detekt/detekt.gradle'
+
+repositories {
+    maven {
+        url 'http://dl.bintray.com/apollographql/android'
+    }
+}
 
 android {
     compileSdkVersion 28
@@ -22,6 +29,11 @@ android {
     }
 }
 
+apollo {
+    customTypeMapping = ["URI": "kotlin.String", "GitObjectID": "kotlin.String", "DateTime": "kotlin.String"]
+    generateKotlinModels = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -32,6 +44,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+
+    implementation "com.apollographql.apollo:apollo-runtime:1.0.2"
+    implementation "com.apollographql.apollo:apollo-coroutines-support:1.0.2"
+    implementation "com.apollographql.apollo:apollo-android-support:1.0.2"
 
     testImplementation 'junit:junit:4.12'
     testImplementation "io.mockk:mockk:$mockk"
