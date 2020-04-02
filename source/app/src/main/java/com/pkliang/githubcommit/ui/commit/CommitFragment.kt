@@ -6,11 +6,11 @@ import com.pkliang.githubcommit.R
 import com.pkliang.githubcommit.domain.commit.entity.Commit
 import com.pkliang.githubcommit.domain.commit.entity.CommitRequestParams
 import com.pkliang.githubcommit.domain.commit.entity.CommitResponse
-import com.pkliang.githubcommit.ui.commit.view.LoadingNextPageRowModel_
+import com.pkliang.githubcommit.ui.core.view.LoadingNextPageRowModel_
 import com.pkliang.githubcommit.ui.commit.view.commitRow
-import com.pkliang.githubcommit.ui.commit.view.emptyResultRow
-import com.pkliang.githubcommit.ui.commit.view.loadingFirstPageRow
-import com.pkliang.githubcommit.ui.commit.view.loadingNextPageFailedRow
+import com.pkliang.githubcommit.ui.core.view.emptyResultRow
+import com.pkliang.githubcommit.ui.core.view.loadingFirstPageRow
+import com.pkliang.githubcommit.ui.core.view.loadingNextPageFailedRow
 import com.pkliang.githubcommit.ui.core.BaseFragment
 import com.pkliang.githubcommit.ui.core.InitState
 import com.pkliang.githubcommit.ui.core.LcerState

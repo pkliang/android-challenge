@@ -1,4 +1,4 @@
-package com.pkliang.githubcommit.ui.commit.view
+package com.pkliang.githubcommit.ui.core.view
 
 import android.content.Context
 import android.util.AttributeSet

@@ -1,26 +1,23 @@
-package com.pkliang.githubcommit.ui.commit.view
+package com.pkliang.githubcommit.ui.core.view
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.Gravity
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
 import com.pkliang.githubcommit.R
 import kotlinx.android.synthetic.main.text_row.view.*
 
-@ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
-class LoadingNextPageFailedRow @JvmOverloads constructor(
+@ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_MATCH_HEIGHT)
+class LoadingFirstPageFailedRow @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr) {
+) : FrameLayout(context, attrs, defStyleAttr) {
 
     init {
         inflate(context, R.layout.text_row, this)
-        orientation = VERTICAL
-        gravity = Gravity.CENTER_HORIZONTAL
     }
 
     @TextProp

@@ -4,8 +4,11 @@ import android.content.Context
 import com.apollographql.apollo.ApolloClient
 import com.pkliang.githubcommit.data.network.AuthInterceptor
 import com.pkliang.githubcommit.data.repository.CommitRepositoryGraphqlImpl
+import com.pkliang.githubcommit.data.repository.UserRepositoryGraphqlImpl
 import com.pkliang.githubcommit.domain.commit.repository.CommitRepository
+import com.pkliang.githubcommit.domain.user.repository.UserRepository
 import com.pkliang.githubcommit.domain.commit.usecase.GetRepoCommitsUseCase
+import com.pkliang.githubcommit.domain.user.usecase.SearchUserUseCase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -23,6 +26,8 @@ val appModule = module {
     single { ApolloClient.builder().serverUrl(BASE_URL).okHttpClient(get()).build() }
 
     single<CommitRepository> { CommitRepositoryGraphqlImpl(get()) }
+    single<UserRepository> { UserRepositoryGraphqlImpl(get()) }
 
     factory { GetRepoCommitsUseCase(get()) }
+    factory { SearchUserUseCase(get()) }
 }
