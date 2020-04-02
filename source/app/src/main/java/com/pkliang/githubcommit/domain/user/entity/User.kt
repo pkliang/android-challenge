@@ -10,5 +10,6 @@ data class User(
     val location: String?,
     val followersCount: Int,
     val followingsCount: Int,
-    val pullRequestsCount: Int
+    val pullRequestsCount: Int,
+    val repositoriesCount: Int
 )

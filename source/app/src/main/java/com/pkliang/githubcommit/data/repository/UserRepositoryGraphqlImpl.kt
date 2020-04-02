@@ -40,7 +40,8 @@ class UserRepositoryGraphqlImpl(private val apolloClient: ApolloClient) :
                 location = it.location,
                 followersCount = it.followers.totalCount,
                 followingsCount = it.following.totalCount,
-                pullRequestsCount = it.pullRequests.totalCount
+                pullRequestsCount = it.pullRequests.totalCount,
+                repositoriesCount = it.repositories.totalCount
             )
         }
 
