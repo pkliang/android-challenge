@@ -6,6 +6,7 @@ import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.Success
 import com.airbnb.mvrx.Uninitialized
 import com.airbnb.mvrx.test.MvRxTestRule
+import com.pkliang.githubcommit.CoroutinesTestRule
 import com.pkliang.githubcommit.domain.commit.entity.Commit
 import com.pkliang.githubcommit.domain.commit.entity.CommitRequestParams
 import com.pkliang.githubcommit.domain.commit.entity.CommitResponse
@@ -16,15 +17,14 @@ import com.pkliang.githubcommit.ui.core.LoadFirstPageFailed
 import com.pkliang.githubcommit.ui.core.LoadingFirstPage
 import com.pkliang.githubcommit.ui.core.LoadingNextPage
 import com.pkliang.githubcommit.ui.core.PageLoaded
-import io.mockk.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
-import org.junit.After
-import org.junit.Before
+import io.mockk.coEvery
+import io.mockk.coVerifySequence
+import io.mockk.confirmVerified
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.runs
+import io.mockk.spyk
 import org.junit.Rule
 import org.junit.Test
 
@@ -33,26 +33,17 @@ class CommitViewModelShould {
     @JvmField
     var testSchedulerRule = MvRxTestRule()
 
+    @Rule
+    @JvmField
+    var coroutineTestRule = CoroutinesTestRule()
+
     private val lifecycleOwner = spyk<LifecycleOwner>()
     private val subscriber = spyk<(LcerState<CommitResponse>) -> Unit>()
     private val getRepoCommitsUseCase = mockk<GetRepoCommitsUseCase>()
 
-    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
-
     private val secondPage = "1"
     private val thirdPage = "2"
     private val exception = Exception("exception")
-
-    @Before
-    fun setUp() {
-        Dispatchers.setMain(mainThreadSurrogate)
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain() // reset main dispatcher to the original Main dispatcher
-        mainThreadSurrogate.close()
-    }
 
     @Test
     fun `emit correct sequence of states when fetchFirstPage called and the first page returned`() {
@@ -102,8 +93,7 @@ class CommitViewModelShould {
     }
 
     @Test
-    fun `emit correct sequence of states when fetchNextPage called and next pages returned`() =
-        runBlocking {
+    fun `emit correct sequence of states when fetchNextPage called and next pages returned`() {
             givenFirstPageCommitResponse()
             every { subscriber(any()) } just runs
             val commitViewModel = CommitViewModel(
@@ -114,7 +104,6 @@ class CommitViewModelShould {
 
 
             commitViewModel.fetchFirstPage(givenFirstPageCommitParams())
-            delay(100)
             givenSecondPageCommitResponse()
             commitViewModel.fetchNextPage()
 
