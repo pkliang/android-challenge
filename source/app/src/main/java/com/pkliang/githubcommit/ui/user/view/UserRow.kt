@@ -11,7 +11,6 @@ import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
 import com.pkliang.githubcommit.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.commit_row.view.avatar
 import kotlinx.android.synthetic.main.user_row.view.*
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
