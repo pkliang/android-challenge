@@ -25,6 +25,7 @@ class UserRepositoryGraphqlImpl(private val apolloClient: ApolloClient) :
         }
 
         val nextPage = response.data()?.search?.pageInfo?.endCursor
+        val hasNextPage = response.data()?.search?.pageInfo?.hasNextPage
 
         val users = response.data()?.search?.edges?.mapNotNull {
             it?.node?.inlineFragment as SearchUserQuery.AsUser?
@@ -43,6 +44,6 @@ class UserRepositoryGraphqlImpl(private val apolloClient: ApolloClient) :
             )
         }
 
-        return SearchUserResponse(users, nextPage)
+        return SearchUserResponse(users, hasNextPage, nextPage)
     }
 }
