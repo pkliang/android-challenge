@@ -29,3 +29,37 @@ query getCommit($owner: String!, $repoName: String!, $first: Int, $after: String
         }
     }
 }
+
+query searchUser($queryString: String!, $first: Int, $after: String) {
+    search(query:$queryString , type: USER, first: $first, after: $after) {
+        edges {
+            node {
+                ... on User {
+                    login
+                    name
+                    company
+                    avatarUrl
+                    email
+                    location
+                    createdAt
+                    repositories {
+                        totalCount
+                    }
+                    followers {
+                        totalCount
+                    }
+                    following {
+                        totalCount
+                    }
+                    pullRequests{
+                        totalCount
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}
