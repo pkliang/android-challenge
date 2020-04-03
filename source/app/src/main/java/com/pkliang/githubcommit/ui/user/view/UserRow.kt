@@ -53,7 +53,7 @@ class UserRow @JvmOverloads constructor(
     @ModelProp
     fun setAvatar(url: String?) {
         avatar.visibility = View.VISIBLE
-        Picasso.get().load(url).fit().placeholder(R.mipmap.ic_launcher).noFade().into(avatar)
+        Picasso.get().load(url).fit().placeholder(R.drawable.ic_person_48dp).noFade().into(avatar)
     }
 
     @CallbackProp
