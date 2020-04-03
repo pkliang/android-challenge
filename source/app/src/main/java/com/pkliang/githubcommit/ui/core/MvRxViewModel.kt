@@ -18,7 +18,12 @@ abstract class MvRxViewModel<S : MvRxState>(initialState: S) :
         }.onSuccess {
             setState { reducer(Success(it)) }
         }.onFailure {
-            setState { reducer(Fail(it)) }
+            if (it.stackTrace.isNullOrEmpty()) {
+                val exception = RuntimeException(it.message, it)
+                setState { reducer(Fail(exception)) }
+            } else {
+                setState { reducer(Fail(it)) }
+            }
         }
     }
 }
