@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="retry">Retry</string>
+    <string name="no_commit">No commit</string>
+    <string name="auth_token">Please replace your github access token here</string>
+    <string name="search_hint">Input user name or email</string>
+    <string name="no_user_found">No user found</string>
+    <string name="followers">Followers: %1$d</string>
+    <string name="repositories">Repositories:  %1$d</string>
+    <string name="following">Following:  %1$d</string>
+    <string name="pull_requests">Pull requests:  %1$d</string>
+    <string name="search_user">Search user:  %1$s</string>
+    <string name="search_intro">Tap the search icon to start searching</string>
+</resources>
