@@ -1,25 +1,59 @@
-## Android Programming Task
+# Tech Stack
 
-In order to be considered for the Android position, please complete this task.
-
-*Note: This task should take no longer than a few hours at the most.*
-
-
-## Task
-
-1. Fork this repository (if you don't know how to do that, Google is your friend)
-2. Create a *source* folder to contain your code. 
-3. In the *source* directory, please create an Android app that accomplishes the following:
-	- Connect to the [Github API](http://developer.github.com/)
-	- Find the [android/platform_build](https://github.com/android/platform_build) repository
-	- Find the most recent commits (choose at least 25 or more of the commits)
-	- Create a view that shows the list of recent commits by author
-4. Commit and Push your code to your new repository
-5. Send us a pull request (or if you prefer to keep it private, send us the files), we will review your code and get back to you
+* [Kotlin][1]
+* [Kotlin Coroutines][2]
+* [Koin][3]
+* [Apollo GraphQL][4]
+* [OkHttp][5]
+* [Junit][6]
+* [Mockk][7]
+* [Hamcrest][8]
+* [MvRx][9]
 
 
-### Optional extras
-Extras are appreciated. Here's a small list of ideas:
+# Architecture: Clean + MvRx
+
+There are three layers,
+
+* `domain` contains business objects, usecases and repositories.
+
+* `data` provides repository implementations. Apollo is used for Graphql requests.
+
+* `ui` is the presentation layer which uses MvRx pattern. Conceptually, MvRx will feel very familiar for those who are used to React. Koin is used as DI in this layer
+
+<img width="1381" alt="captura de pantalla 2018-02-23 a la s 11 39 01" src="https://user-images.githubusercontent.com/5893477/36608070-4cd45166-188e-11e8-977a-fc6e1cd8b359.png">
+
+
+# Testing
+
+JUnit and Mockk for unit tests are used here.
+
+There is no UI tests(Espresso) due to time limit.
+
+
+# Code Standard
+
+[Detekt][10] is used for static code analysis for Kotlin.
+
+.idea/codeSytles folder is shared in the repository.
+
+
+# Optional extras Implemented
 * Show avatar in the custom commit view
-* Implement tapping a commit to show more details in a new view
 * Load more commits when reaching the end of the list
+
+# Important
+Replace `auth_token` with your own github access token with `repo` and `user` scopes in `strings.xml` when you run the app.
+
+Otherwise you will end up with `401 Unauthorized`
+
+[1]: https://kotlinlang.org/
+[2]: https://github.com/Kotlin/kotlinx.coroutines
+[3]: https://github.com/InsertKoinIO/koin
+[4]: https://github.com/apollographql/apollo-android
+[5]: https://github.com/square/okhttp
+[6]: http://developer.android.com/intl/es/reference/junit/framework/package-summary.html
+[7]: https://mockk.io/
+[8]: http://hamcrest.org/
+[9]: https://github.com/airbnb/MvRx
+[10]: https://github.com/arturbosch/detekt
