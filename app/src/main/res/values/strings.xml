@@ -2,7 +2,7 @@
     <string name="app_name">Github User</string>
     <string name="retry">Retry</string>
     <string name="no_commit">No commit</string>
-    <string name="auth_token">96441a3eeebca94a8fa23f2805f19ca103f0d1f2</string>
+    <string name="auth_token">Please replace your github access token here</string>
     <string name="search_hint">Input user name or email</string>
     <string name="no_user_found">No user found</string>
     <string name="followers">Followers: %1$d</string>
