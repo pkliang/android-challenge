@@ -37,11 +37,6 @@ There is no UI tests(Espresso) due to time limit.
 
 .idea/codeSytles folder is shared in the repository.
 
-
-# Optional extras Implemented
-* Show avatar in the custom commit view
-* Load more commits when reaching the end of the list
-
 # Important
 Replace `auth_token` with your own github access token with `repo` and `user` scopes in `strings.xml` when you run the app.
 
